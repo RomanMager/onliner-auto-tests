@@ -1,1 +1,5 @@
-{}
+{
+    "baseUrl": "http://onliner.by",
+    "viewportHeight": 1080,
+    "viewportWidth": 1920
+}

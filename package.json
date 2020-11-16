@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx cypress open",
     "test": "npx cypress run",
-    "test:qa": "test --env configFile=qa-1"
+    "test:qa_env": "npx cypress run --env configFile=qa",
+    "cy_open:qa_env": "npx cypress open --env configFile=qa"
   },
   "author": "",
   "license": "ISC",

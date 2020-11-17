@@ -1,29 +1,23 @@
 /// <reference types="cypress"/>
 
-class LoginPage {
+// Locators
+const FORM = 'form';
+const EMAIL_INPUT = '[placeholder="Ник или e-mail"]';
+const PASSWORD_INPUT = '[placeholder="Пароль"]';
 
-    /*
-    enterEmail() {
-        
+export class LoginPage {
+
+    typeEmail(email) {
+        cy.get(FORM).find(EMAIL_INPUT).type(email);
     }
 
-    enterPassword() {
-
+    typePassword(password) {
+        cy.get(FORM).find(PASSWORD_INPUT).type(password);
     }
 
-    submitForm() {
-
-    }
-    */
-
-    submitFormWithEmailAndPassword(email, password) {
-        cy.contains('.auth-container', 'Вход')
-            .find('form').then(form => {
-                cy.wrap(form).find('[placeholder="Ник или e-mail"]').type(email);
-                cy.wrap(form).find('[placeholder="Пароль"]').type(password);
-                cy.wrap(form).submit();
-            })
+    clickLogInButton() {
+        cy.contains('.auth-container', 'Вход').find(FORM).submit();
     }
 }
 
-export default LoginPage;
+export const actionsOnLoginPage = new LoginPage();

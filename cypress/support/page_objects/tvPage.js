@@ -4,6 +4,7 @@ const TV_NAME = 'h1.catalog-masthead__title';
 const OFFERS_ASIDE_MENU = '#shop-offers-container';
 const ADD_TO_CART_BUTTON = 'a.button_orange';
 
+const ADD_TO_COMPARISON_CHECKBOX = '#product-compare-control [type="checkbox"]';
 export class TvPage {
 
     verifyPage(tvName) {
@@ -28,6 +29,15 @@ export class TvPage {
     proceedToCartPage() {
         cy.contains(ADD_TO_CART_BUTTON, 'В корзине')
             .click()
+    }
+
+    addToComparison() {
+        cy.get(ADD_TO_COMPARISON_CHECKBOX)
+            .check({ force: true });
+    }
+
+    returnToTvListPage() {
+        cy.go('back');
     }
 }
 

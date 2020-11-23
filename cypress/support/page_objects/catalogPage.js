@@ -5,8 +5,10 @@ const CATALOG_CATEGORIES_NAVIGATION_BAR = 'ul.catalog-navigation-classifier';
 const CATALOG_CATEGORIES_TITLES = 'span.catalog-navigation-classifier__item-title span';
 const CATALOG_NAVIGATION = '.catalog-navigation-list';
 const SUB_CATEGORIES_ASIDE_LIST = '.catalog-navigation-list__aside-list';
-const SUB_CATEGORIES_TITLES = '.catalog-navigation-list__aside-item';
-const PRODUCTS_TITLES = 'span.catalog-navigation-list__dropdown-title';
+const SUB_CATEGORIES_TITLES = '.catalog-navigation-list__aside-title';
+const CATALOG_NAVIGATION_OPENED = '.catalog-navigation-list_opened';
+const PRODUCTS_DROPDOWN = '.catalog-navigation-list__dropdown';
+const PRODUCT_TITLES = 'span.catalog-navigation-list__dropdown-title';
 
 const URL = 'https://catalog.onliner.by/';
 
@@ -41,9 +43,11 @@ export class CatalogPage {
     }
 
     openItemPage(itemName) {
-        cy.get(`${CATALOG_NAVIGATION}_opened`)
-            .find(`${SUB_CATEGORIES_ASIDE_LIST}_active`)
-            .find(PRODUCTS_TITLES)
+        cy.get(CATALOG_NAVIGATION_OPENED)
+            .find(PRODUCTS_DROPDOWN)
+            .filter(':visible')
+            .find(PRODUCT_TITLES)
+            .filter(':visible')
             .each(title => {
                 return deleteNonBreakingSpace(title);
             }).then(title => {

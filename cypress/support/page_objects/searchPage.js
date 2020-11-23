@@ -23,7 +23,7 @@ export class SearchPage {
     }
 
     verifyResultsContainValidInformation(containString) {
-        cy.iframe('.modal-iframe')
+        cy.iframe(IFRAME_WINDOW)
             .find(SEARCH_RESULT_LIST)
             .children(SEARCH_RESULT_SINGLE_ITEM)
             .each(product => {

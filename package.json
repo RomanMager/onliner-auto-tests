@@ -6,7 +6,7 @@
     "start": "npx cypress open",
     "test": "npx cypress run",
     "test:qa_env": "npx cypress run --env configFile=qa",
-    "cy_open:u1": "npx cypress open --env configFile=qa",
+    "cy_open:u1": "npx cypress open --env configFile=user1",
     "cy_open:u2": "npx cypress open --env configFile=user2"
   },
   "author": "",

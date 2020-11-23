@@ -6,6 +6,7 @@ const SEARCH_BAR_INPUT = 'form.fast-search__form input[type="text"]';
 const SEARCH_RESULT_LIST = 'ul.search__results';
 const SEARCH_RESULT_SINGLE_ITEM = 'li.search__result';
 const SEARCHED_PRODUCT_TITLE = 'div.product__title a.product__title-link';
+const IFRAME_WINDOW = '.modal-iframe';
 
 export class SearchPage {
 
@@ -15,7 +16,7 @@ export class SearchPage {
     }
 
     verifyResultsAreNotEmpty() {
-        cy.iframe('.modal-iframe')
+        cy.iframe(IFRAME_WINDOW)
             .find(SEARCH_RESULT_LIST)
             .children(SEARCH_RESULT_SINGLE_ITEM)
             .should('not.be.empty');

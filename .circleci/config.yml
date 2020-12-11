@@ -19,10 +19,9 @@ workflows:
           group: Chrome (2 machines)
       - cypress/run:
           name: FireFox test run
-          executor:
+          executor: cypress/browsers-chrome78-ff70
           requires:
             - cypress/install
-            - Chrome test run
           command: npm run test:qa_env_2
           browser: firefox
           parallel: true

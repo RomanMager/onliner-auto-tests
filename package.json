@@ -5,8 +5,8 @@
   "scripts": {
     "start": "npx cypress open",
     "test": "npx cypress run",
-    "test:qa_env_1": "npx cypress run --env configFile=user1",
-    "test:qa_env_2": "npx cypress run --env configFile=user2",
+    "test:qa_env_1": "npx cypress run --env configFile=user1 --browser chrome",
+    "test:qa_env_2": "npx cypress run --env configFile=user2 --browser firefox",
     "cy_open:u1": "npx cypress open --env configFile=user1",
     "cy_open:u2": "npx cypress open --env configFile=user2"
   },

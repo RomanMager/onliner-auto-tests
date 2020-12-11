@@ -5,13 +5,13 @@ workflows:
   build:
     jobs:
       - cypress/install
-          # run a custom app build step
-          # build: 'npm install'
+      # run a custom app build step
+      # build: 'npm install'
       - cypress/run:
           name: Chrome test run
-          executor: cypress/browsers:node14.15.0-chrome86-ff82
+          executor: cypress/browsers-chrome86-ff82
           requires:
-              - cypress/install
+            - cypress/install
           command: npm run test:qa_env_1
           browser: chrome
           parallel: true
@@ -19,10 +19,10 @@ workflows:
           group: Chrome (2 machines)
       - cypress/run:
           name: FireFox test run
-          executor: 
+          executor:
           requires:
-              - cypress/install
-              - Chrome test run
+            - cypress/install
+            - Chrome test run
           command: npm run test:qa_env_2
           browser: firefox
           parallel: true

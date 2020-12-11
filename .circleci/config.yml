@@ -9,7 +9,7 @@ workflows:
       # build: 'npm install'
       - cypress/run:
           name: Chrome test run
-          executor: cypress/browsers-chrome86-ff82
+          executor: cypress/browsers-chrome85-ff81
           requires:
             - cypress/install
           command: npm run test:qa_env_1
@@ -19,7 +19,7 @@ workflows:
           group: Chrome (2 machines)
       - cypress/run:
           name: FireFox test run
-          executor: cypress/browsers-chrome86-ff82
+          executor: cypress/browsers-chrome85-ff81
           requires:
             - cypress/install
           command: npm run test:qa_env_2

@@ -18,7 +18,7 @@ export class CartPage {
     proceedToCheckOutPage() {
         cy.get(PROCEED_ORDER_BUTTON)
             .contains('Оформить заказ')
-            .click();
+            .click({ force: true });
     }
 
     removeAllItemsFromCart() {

@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+    cypress_test:
+        ipc: host
+        # shm_size: 512M
+        image: cypress_compose
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./dockerReports/screenshots/:/cy-tests/cypress/screenshots
+            - ./dockerReports/videos/:/cy-tests/cypress/videos

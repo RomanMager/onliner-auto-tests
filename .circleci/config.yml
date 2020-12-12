@@ -1,13 +1,10 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
-
 executors:
   with-chrome-and-firefox:
     docker:
       - image: "cypress/browsers:node12.14.1-chrome85-ff81"
-
-
 workflows:
   build:
     jobs:
@@ -16,6 +13,7 @@ workflows:
       # build: 'npm install'
       - cypress/run:
           name: Chrome test run
+          record: true
           executor: with-chrome-and-firefox
           requires:
             - cypress/install
@@ -26,6 +24,7 @@ workflows:
           group: Chrome (2 machines)
       - cypress/run:
           name: FireFox test run
+          record: true
           executor: with-chrome-and-firefox
           requires:
             - cypress/install
